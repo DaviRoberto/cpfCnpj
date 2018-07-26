@@ -8,14 +8,14 @@ const asyncMiddleware = fn =>
     .catch(next);
 };
 
-router.get('/gerar', asyncMiddleware (async (req, res,next) => {
-  const rota = (req.originalUrl).replace(/[/]|gerar/g, '');    
-  const dados = await helper.getCpfCnpj(rota);  
+router.get('/gerar', asyncMiddleware (async (req, res, next) => {  
+  const dados = await helper.GetCpfCnpj(helper.GetRota(req));  
   res.send(dados);    
 }));
 
-router.get('/validar/:cpfCnpj', function(req, res) {
-  res.send('Válida CNPJ');
-});
+router.get('/validar/:cpfCnpj', asyncMiddleware (async (req, res, next) => {  
+  const dados = await helper.SetCpfCnpj(helper.GetRota(req), req.params.cpfCnpj);    
+  res.send(dados);    
+}));
 
 module.exports = router;
