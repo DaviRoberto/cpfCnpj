@@ -1,0 +1,16 @@
+{
+  "api": {
+    "url": "http://geradorapp.com/api/v1/",
+    "token": "689abbd85ae59166a6cb4126d19a1a82",
+    "action": {
+      "gerar": "generate", 
+      "validar": "validate"
+    }
+  },
+
+  "app": {
+    "host": "localhost",
+    "port": 3073
+  }
+  
+}
