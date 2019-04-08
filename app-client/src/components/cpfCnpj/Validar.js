@@ -1,5 +1,5 @@
 import React from 'react';
-// import http from '../../api'
+import http from '../../api'
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
@@ -19,8 +19,9 @@ const styles = {
 
 class Validar extends React.Component {
 
-  validar(param){
-    console.log(`Aqui: ${param}`);
+  async validar (id, cpf) {
+    const response = await http.get(`${id}/validar/${cpf}`);
+    console.log(response.data);    
   }
  
   render() {
@@ -32,8 +33,8 @@ class Validar extends React.Component {
             <Col md={12}>
 
               <InputGroup className="mb-5">          
-                <FormControl id="cpf" placeholder="Insira o CPF"/>
-                <Button variant="secondary" style={styles.btnValidar} onClick={ () => this.validar('') }>Validar</Button>
+                <FormControl id="cpf" placeholder="Insira o CPF" ref={input => this.cpf = input}/>
+                <Button variant="secondary" style={styles.btnValidar} onClick={(event)=>this.validar('cpf', this.cpf.value)}>Validar</Button>
               </InputGroup>
 
               <InputGroup className="mb-5">          

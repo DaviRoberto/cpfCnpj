@@ -3,9 +3,11 @@ const app = express();
 const bodyParser = require('body-parser');
 const config = require('./index');
 const rotas = require('./cpfCnpj/rotas');
+var cors = require('cors');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(cors());
 
 app.use(['/cpf', '/cnpj'], rotas);
 
