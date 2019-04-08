@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <title>cpfCnpj!</title>
+</head>
+
+<body onload="getHostUrl()">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <br>
+        <h2>Documentação</h2>
+        <br>
+        <br>
+
+        <h4>Gerar</h4>
+        <ul>
+          <li><strong>CPF:</strong>  <a href="cpf/gerar" target="_blank"><span class="hostUrl"></span>/cpf/gerar</a></li>
+          <li><strong>CNPJ:</strong> <a href="cnpj/gerar" target="_blank"><span class="hostUrl"></span>/cnpj/gerar</a></li>
+        </ul>
+        <br>
+
+        <h4>Validar</h4>
+        <ul>
+          <li><strong>CPF:</strong> <a href="cpf/validar/cpf-para-validar" target="_blank"><span class="hostUrl"></span>/cpf/validar/cpf-para-validar</a></li>
+          <li><strong>CNPJ:</strong> <a href="cnpj/validar/cnpj-para-validar" target="_blank"><span class="hostUrl"></span>/cnpj/validar/cnpj-para-validar</a></li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+
+  <script>    
+    const getHostUrl = () => {      
+      const hostUrlLink = window.location.href; 
+      let items = document.getElementsByClassName("hostUrl"), i, len;
+
+      for (i = 0, len = items.length; i < len; i++) 
+        items[i].innerHTML = hostUrlLink;      
+    }
+  </script> 
+
+</body>
+</html>
